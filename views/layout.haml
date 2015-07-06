@@ -1,0 +1,31 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %link{:href => "/css/site.css", :rel => "stylesheet", :type => "text/css"}/
+    %title
+      Sinatra Music Store
+  %body
+    #container
+      #header
+        %h1
+        %img{:src => '/images/logo.png'}
+          %a{:href => "/"} SINATRA MUSIC STORE
+        %ul#navlist
+          %li.first
+            %a#current{:href => "/"} Home
+          %li
+            %a{:href => "/Store/"} Store
+          %li
+            %a#cart-status{:href => "/ShoppingCart?Length=12"} Cart (0)
+          %li
+            %a{:href => "/StoreManager/"} Admin
+      #content-section
+        #categories
+          - @genres.each do |g|
+            %li
+              %a{:href => "/#{g.slug}"}=g.name
+        #main
+          = yield
+        #footer
+          built with
+          %a{:href => "http://asp.net/mvc"} Sinatra

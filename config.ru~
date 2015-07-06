@@ -1,0 +1,5 @@
+require "rubygems"
+
+map "/" do
+  run MusicCatalog
+end
